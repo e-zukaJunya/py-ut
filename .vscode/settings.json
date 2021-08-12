@@ -1,0 +1,4 @@
+{
+    "autoDocstring.docstringFormat": "numpy",
+    "python.defaultInterpreterPath": "/usr/local/bin/python"
+}

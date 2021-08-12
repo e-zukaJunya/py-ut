@@ -1,0 +1,26 @@
+version: "3"
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # ログレベル
+      - LOG_LEVEL=DEBUG
+      # import対象のパス追加
+      - PYTHONPATH=/app
+      # pycを生成させない
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+      - ./:/app
+    # コンテナ立ち上げ時に実行されるコマンド
+    # pipenvによるパッケージインストール（コンテナ内では仮想環境化せず、グローバルインストールさせる）
+    # このプロセスが終わるとコンテナが終了してしまうため、sleep infinity
+    command: >
+      bash -c "pipenv install --dev --system && sleep infinity"
+    # コンテナ内のカレントディレクトリ指定
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    env_file:
+      - .env
