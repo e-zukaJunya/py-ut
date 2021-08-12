@@ -11,6 +11,7 @@ mypy = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-mock = "*"
+black = "==19.3b0"
 
 [packages]
 pandas = "*"
