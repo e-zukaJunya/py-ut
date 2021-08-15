@@ -1,54 +1,62 @@
-# VS Codeのdevcontainerを利用するための参考プロジェクト
+# Pytest series sample
 
-pythonすぐ動かせる版。
+This is a sample repo of pytest series library.
 
-## 準備
+- pytest
+- pytest-cov
+- pytest-mock
+
+It's explains just a simple usage.
+
+## requirements
 
 - VSCode
-- VSCode拡張
+- VSCode extensions
   - Remote-Containers
 
-### .envの用意
+## usage
 
-このREADMEと同じディレクトリに.envという名前のファイルを作り、以下の内容を記載する。
+### Prepare a .env
 
-文字コードがUTF-8以外だとだめなので注意。
+Put a file named .env at the same position of This README. And write the content berow.
+
+Warning: It doesn't work with the utf-8 encoding.
 
 ```ini
-# docker-compose プロジェクト名
+# docker-compose project name(as you like)
 COMPOSE_PROJECT_NAME="my_devcontainer"
 ```
 
-### 開発環境の起動
+### Start up your development environment
 
-このディレクトリをルートとしてVSCodeで開き、Ctrl + Shift + p でコマンドパレットを開き、Reopen in Containerを選ぶ。
+Open this dir as root with VScode, and open the command pallet by Ctrl + Shift + p, then select Reopen in Container.
 
-起動に失敗したようなダイアログが出ることがあるが、Retryするとうまく行くことが多い。それでもダメなら案内に従っておとなしくホスト側に戻り、エラーログを見る。
+It sometimes pops a dialog about starting up was fault, but it often goes well when you retry.
 
-コンテナのセットアップには5分ほどかかる。
+If it doesn't work, you should go back to your host following the message , and look the error log.
 
-## 構成
+It takes about 5 min to set up a container.
 
-- .devcontainer/: vscode devcontainerのための設定が入っている。
-- .vscode/: vscodeの設定ファイルが入っている。
-- controllers/: C#のController的立場のファイルを配置。
-- services/: Controllerと対応するService的立場のファイルを配置。
-- common/: 各バッチ共通で使用するものを配置。
-  - constants/: 固定値を配置。
-    - 各ファイルについてはファイル内のサンプルやコメント参照。
-  - logger/: ロガーを配置。
-  - services/: 外部とやり取りを行う共通モジュールを配置。
-  - utils/: 共通処理を配置。
-  - decorators/: デコレータを配置。
-- test/: 各種テスト用コードを配置。
-- develop/: 開発中に使用する便利なものを置く。今はjupyterのサンプルのみ。
+## composition
 
-## デバッグ
+Just a main ones.
+
+- .devcontainer/: vscode devcontainer settings
+- .vscode/: vscode settings(It's for devcontainer env)
+- src/: main codes
+- test/: test codes
+- develop/: useful tools for develop. Just a jupyter sample now...
+
+## debug
 
 VSCodeのデバッグ機能で今開いているファイルをエントリーポイントとしてデバッグ実行ができる。
 
 test/ディレクトリ以下に、目的のステップを起動するコードを書いてそのスクリプトをデバッグ実行する。
 
-## テスト
-dulationの数だけ遅い順に表示してくれる
-0だとすべて表示
+## memo about a test
+
+- -s: generate print messages
+- -vv: 
+- --cov: take the coverage of the tests.
+- --durations: show test behavior in order of slowness. If it's set 0, show all the behaviors and dulations.
+- --cov-report: generate a test report as html.
