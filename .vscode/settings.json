@@ -1,4 +1,10 @@
 {
     "autoDocstring.docstringFormat": "numpy",
-    "python.defaultInterpreterPath": "/usr/local/bin/python"
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }
