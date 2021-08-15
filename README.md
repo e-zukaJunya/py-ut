@@ -47,16 +47,11 @@ Just a main ones.
 - test/: test codes
 - develop/: useful tools for develop. Just a jupyter sample now...
 
-## debug
-
-VSCodeのデバッグ機能で今開いているファイルをエントリーポイントとしてデバッグ実行ができる。
-
-test/ディレクトリ以下に、目的のステップを起動するコードを書いてそのスクリプトをデバッグ実行する。
-
 ## memo about a test
 
-- -s: generate print messages
-- -vv: 
-- --cov: take the coverage of the tests.
-- --durations: show test behavior in order of slowness. If it's set 0, show all the behaviors and dulations.
-- --cov-report: generate a test report as html.
+- -s: shows the print messages.
+- -v: shows the results of your tests.
+- -vv: shows the slowest 10 test durations.
+- --cov: take the coverage of your tests.
+- --durations: show your test behavior in order of the slowness. If it's set 0, show all the behaviors and durations.
+- --cov-report: generate your test report as a html.
