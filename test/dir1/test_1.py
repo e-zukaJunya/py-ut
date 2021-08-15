@@ -12,13 +12,13 @@ def test_1(aaa):
 
 
 class TestGroup():
-    def test_2():
+    def test_2(self):
         a = 1
         b = 2
         num1 = multiple(1, 2)
         assert a*b == num1
 
-    def test_3():
+    def test_3(self):
         a = 1
         b = 2
         num1 = add_n_multi(1, 2)

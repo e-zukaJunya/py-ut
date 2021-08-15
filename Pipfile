@@ -4,7 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [scripts]
-test = "pytest --durations=10 -vv test -s"
+test-c0 = "pytest --cov=src --durations=10 -vv test -s"
+test-c1 = "pytest --cov=src --cov-branch --durations=10 -vv test -s"
+test-result = "pytest --cov=src --cov-branch --durations=10 -vv test -s --cov-report=html"
 type-check = "mypy src/module1.py"
 
 [dev-packages]
